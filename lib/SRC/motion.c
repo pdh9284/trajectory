@@ -9,6 +9,8 @@ matrix motion(matrix *ut, matrix *bot_pose){
   y=bot_pose->mat[1];
   theta=bot_pose->mat[2];
 
+  free(bot_pose->mat);
+  free(ut->mat);
   matrix res = init_mat(3,1,NULL);
 
   res.mat[0] = x-v/w*sin(theta)+v/w*sin(theta+w);

@@ -5,7 +5,7 @@ int main(void){
 
   char *val_ut[]      = {"1","1",NULL};
   char *val_bot_pos[] = {"1","1","0",NULL};
-  char *val_target[]  = {"-7","-5","90",NULL};
+  char *val_target[]  = {"-7","5","90",NULL};
 
   matrix ut            = init_mat(2,1,val_ut);
   matrix bot_pose_temp = init_mat(3,1,val_bot_pos);
@@ -38,8 +38,11 @@ int main(void){
     error    = error_function(&target,&bot_pose);
     ut       = controller(&error);
     fprintf(fp,"%f %f\n",bot_pose.mat[0],bot_pose.mat[1]);
+//    free(bot_pose.mat);
+//    free(error.mat);
+//    free(ut.mat);
+    printf("%d \n",bot_pose.mat);
   }
-
   printf("[%f %f %f]\n",bot_pose.mat[0],bot_pose.mat[1],bot_pose.mat[2]); 
   return 0;
 

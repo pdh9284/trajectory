@@ -9,6 +9,7 @@ matrix controller(matrix *error){
   double a = error->mat[1];
   double b = error->mat[2];
 
+  free(error->mat);
   matrix res = init_mat(2,1,NULL);
 
   if(p<1){
